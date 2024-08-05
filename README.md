@@ -1,2 +1,2 @@
 # Jogo Cobrinha
- Primeiro jogo que programei em python assitindo uma video aula para aprender a linguagem.
+ Primeiro jogo que criei em python para aprender a linguagem
