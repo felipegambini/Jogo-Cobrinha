@@ -2,8 +2,8 @@ import pygame
 import pygame.locals
 from random import randrange
 
-white=(255,255,255)
-black=(0,0,0)
+white=(0,0,0)
+black=(255,255,255)
 green=(0,255,0)
 red=(255,0,0)
 blue=(0,0,255)
@@ -16,11 +16,11 @@ try:
     print('O modulo pygame foi inicializado com sucesso')
 except:
     print('O modulo pygame não foi inicializado com sucesso')
-    
 
-largura=320
-altura=280
-tamanho = 10
+
+largura=1720
+altura=1080
+tamanho = 100
 placar=40
 relogio = pygame.time.Clock()
 fundo = pygame.display.set_mode((largura, altura))
@@ -31,7 +31,7 @@ def texto(msg, cor, tam, x, y):
     font = pygame.font.SysFont(None, tam)
     texto1 = font.render(msg, True, cor)
     fundo.blit(texto1, [x, y])
-    
+
 
 
 def cobra(cobraXY):
@@ -107,7 +107,7 @@ def jogo ():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT and velocidade_x != tamanho:
                     velocidade_y=0
-                    velocidade_x=-tamanho                
+                    velocidade_x=-tamanho
                 if event.key == pygame.K_RIGHT and velocidade_x != -tamanho:
                     velocidade_y=0
                     velocidade_x=tamanho
@@ -147,7 +147,7 @@ def jogo ():
     ##            fimdejogo = True
     ##        if pos_y < 0:
     ##            fimdejogo = True
-            
+
             cobraInicio = []
             cobraInicio.append(pos_x)
             cobraInicio.append(pos_y)
@@ -157,10 +157,10 @@ def jogo ():
 
             if any(Bloco == cobraInicio for Bloco in cobraXY[:-1]):
                 fimdejogo = True
-            
+
             pygame.draw.rect(fundo, black, [0, altura-placar, largura, placar])
             texto('Pontuação: '+str(pontos), white, 20, 10, altura-27)
-            
+
             cobra(cobraXY)
             maca(maca_x, maca_y)
             pygame.display.update()
